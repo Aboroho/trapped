@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class>
+    <!-- modal -->
+    <div class="modal fixed w-full h-full bg-overlay z-10 hidden">
+      <div
+        class="container p-4 w-[90%] lg:w-[80%] h-full flex justify-center items-center"
+      >
+        <div
+          class="modal__content max-h-full overflow-y-scroll custom-scrollbar p-4 bg-popup relative w-full rounded-[5px]"
+        >
+          <div class="flex modal__header flex-row-reverse">
+            <svg
+              onclick="closeModal()"
+              class="stroke-lightCyan hover:stroke-darkCyan cursor-pointer transition-colors ease-in"
+              width="18"
+              height="18"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 1L1 19"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M1 1L19 19"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="modal__body py-10">
+            <h2
+              class="text-primary text-[26px] md:text-[40px] lg:text-[46px] text-center mb-15"
+            >
+              Buy from...
+            </h2>
+            <div
+              class="flex mt-8 gap-4 md:gap-6 lg:gap-8 flex-wrap justify-center"
+            >
+              <a
+                href="#"
+                class="group hover:bg-[#EEF4F5] hover:border-darkCyan duration-500 ease-out w-[112px] h-[47px] px-6 py-3 md:w-[198px] md:h-[84px] md:px-10 md:py-5 lg:px-16 lg:py-18 lg:w-[312px] lg:h-[132px] rounded-md border border-lightCyan flex items-center justify-center"
+              >
+                <img
+                  src="assets/ibooks.png"
+                  alt=""
+                  class="grayscale group-hover:grayscale-0 transition-all duration-500 ease-out w-[84px] md:w-[148px] lg:w-[216px]"
+                />
+              </a>
+              <a
+                href="#"
+                class="group hover:bg-[#EEF4F5] duration-500 ease-out hover:border-darkCyan w-[112px] h-[47px] px-6 py-3 md:w-[198px] md:h-[84px] md:px-10 md:py-5 lg:px-16 lg:py-18 lg:w-[312px] lg:h-[132px] rounded-md border border-lightCyan flex items-center justify-center"
+              >
+                <img
+                  src="assets/google.png"
+                  alt=""
+                  class="grayscale group-hover:grayscale-0 transition-all duration-500 ease-out w-[84px] md:w-[148px] lg:w-[216px]"
+                />
+              </a>
+
+              <a
+                href="#"
+                class="group hover:bg-[#EEF4F5] duration-500 ease-out hover:border-darkCyan w-[112px] h-[47px] px-6 py-3 md:w-[198px] md:h-[84px] md:px-10 md:py-5 lg:px-16 lg:py-18 lg:w-[312px] lg:h-[132px] rounded-md border border-lightCyan flex items-center justify-center"
+              >
+                <img
+                  src="assets/kindle.png"
+                  alt=""
+                  class="grayscale group-hover:grayscale-0 transition-all duration-500 ease-out w-[84px] md:w-[148px] lg:w-[216px]"
+                />
+              </a>
+              <a
+                href="#"
+                class="group hover:bg-[#EEF4F5] duration-500 ease-out hover:border-darkCyan w-[112px] h-[47px] px-6 py-3 md:w-[198px] md:h-[84px] md:px-10 md:py-5 lg:px-16 lg:py-18 lg:w-[312px] lg:h-[132px] rounded-md border border-lightCyan flex items-center justify-center"
+              >
+                <img
+                  src="assets/kobo.png"
+                  alt=""
+                  class="grayscale group-hover:grayscale-0 transition-all duration-500 ease-out w-[84px] md:w-[148px] lg:w-[216px]"
+                />
+              </a>
+              <a
+                href="#"
+                class="group hover:bg-[#EEF4F5] duration-500 ease-out hover:border-darkCyan w-[112px] h-[47px] px-6 py-3 md:w-[198px] md:h-[84px] md:px-10 md:py-5 lg:px-16 lg:py-18 lg:w-[312px] lg:h-[132px] rounded-md border border-lightCyan flex items-center justify-center"
+              >
+                <img
+                  src="assets/bn.png"
+                  alt=""
+                  class="grayscale group-hover:grayscale-0 transition-all duration-500 ease-out w-[84px] md:w-[148px] lg:w-[216px]"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- hero -->
+    <section id="hero" class="overflow-hidden">
+      <div class="container pt-15">
+        <div
+          class="flex flex-col lg:flex-row lg:justify-between md:px-12 xl:px-0"
+        >
+          <div class="lg:flex-1">
+            <img
+              class="js-header-image js-animate w-full relative block xl:-top-15 -left-10 md:-left-15 min-w-[325px] lg:w-[450px] lg:flex-1 xl:w-[700px]"
+              srcset="
+                ../assets/cover-lg.png  100w,
+                ./assets/cover-md.png   768w,
+                ./assets/cover-lg.png  1000w
+              "
+              src="./assets/cover-lg.png"
+              alt="trapped book cover"
+            />
+          </div>
+          <div class="mt-6 lg:flex-1">
+            <h1 class="js-header-title js-animate">
+              Do you feel lost in the life of your own making?
+            </h1>
+            <p class="text-body2 text-base mt-6 js-header-text js-animate">
+              The weight of being a provider and constantly measuring our
+              success by what we “do” in the world can lead us to dark places.
+              It’s time to break free and gain a deeper connection to your life
+              by discovering what makes you tick.
+            </p>
+            <button
+              class="cta-button my-9 js-header-button js-animate"
+              onclick="slideUp()"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonial" class="my-0 lg:mt-2 lg:mb-24 overflow-hidden">
+      <div class="container py-24 md:px-0 lg:px-8">
+        <div class="flex flex-col md:flex-row gap-10">
+          <div
+            class="js-testimonial-one js-animate border-2 border-lightCyan rounded-md px-6 pl-8 py-8 relative"
+          >
+            <p class="text-body2 testimonial-text">
+              In an age where marriages and communities crumble, partially
+              because we have not welcomed men in their wholeness, Trapped! is
+              an essential exploration of healthy masculinity.
+            </p>
+            <div class="author mt-4">
+              <p class="text-body font-bold uppercase text-sm left-bar">
+                Alana Fournet
+              </p>
+              <p class="text-body2">
+                best-selling author of Radiant Powerful You
+              </p>
+            </div>
+            <div
+              class="quote w-16 h-16 flex justify-center items-center absolute -top-9 bg-light"
+            >
+              <img src="assets/quote.svg" alt="" />
+            </div>
+          </div>
+          <div
+            class="js-testimonial-two js-animate border-2 border-lightCyan rounded-md px-6 pl-8 py-8 relative"
+          >
+            <p class="text-body2 testimonial-text">
+              In an age where marriages and communities crumble, partially
+              because we have not welcomed men in their wholeness, Trapped! is
+              an essential exploration of healthy masculinity.
+            </p>
+            <div class="author mt-4">
+              <p class="text-body font-bold uppercase text-sm left-bar">
+                Alana Fournet
+              </p>
+              <p class="text-body2">
+                best-selling author of Radiant Powerful You
+              </p>
+            </div>
+            <div
+              class="quote w-16 h-16 flex justify-center items-center absolute -top-9 bg-light"
+            >
+              <img src="assets/quote.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="bg-cyan py-20 overflow-hidden">
+      <div class="container">
+        <div class="md:px-12 xl:px-0">
+          <div class="subscribed hidden">
+            <div class="flex justify-center">
+              <div class="flex gap-8 items-center">
+                <div>
+                  <div
+                    class="tik w-[110px] h-[110px] rounded-full border-lightCyan border-4 flex justify-center items-center p-4"
+                  >
+                    <svg
+                      class="w-full"
+                      viewBox="0 0 15 11"
+                      fill="#4AA91D"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14.56 1.92849L5.36195 10.9313L0.333374 6.00964L1.62252 4.74789L5.36195 8.3989L13.2708 0.666748L14.56 1.92849Z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h2 class="animate-pulse text-primaryDark">Subscribed!</h2>
+                  <p class="text-[18px] mt-4">
+                    The free chapter is on its way to you.
+                    <strong>Please check your inbox.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col lg:flex-row lg:gap-10 lg:items-start">
+            <div class="lg:flex-1">
+              <h3 class="text-heading">
+                Want to read a free sample chapter from the book?
+              </h3>
+              <p class="body-text2 mt-4 text-slate-900 lg:w-[80%]">
+                Subscribe to read a sample chapter from the book and get latest
+                updates from the author.
+              </p>
+            </div>
+            <form action="" class="mt-5 lg:flex-1">
+              <input
+                placeholder="YOUR EMAIL"
+                type="text"
+                class="tracking-wide block w-full p-4 border border-lightCyan rounded-[4px] focus:outline-lightCyan focus:outline focus:outline-2"
+              />
+              <button class="subscribe-button mt-4">subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awareness" class="lg:py-24 bg-white overflow-hidden">
+      <div class="container py-20">
+        <div class="flex flex-col lg:flex-row lg:gap-[30px] md:px-12 xl:px-0">
+          <div class="lg:flex-1">
+            <div
+              class="xl:w-[427px] xl:h-[487px] relative mb-0 xl:border-[6px] lg:border-darkCyan"
+            >
+              <img
+                src="assets/awareness-lg.png"
+                alt=""
+                class="block w-full md:relative md:-left-7 xl:absolute xl:min-w-[556px] xl:left-3 lg:-top-9"
+              />
+            </div>
+          </div>
+          <div
+            class="lg:flex-1 py-4 lg:py-0 overflow-hidden lg:overflow-visible"
+          >
+            <h3 class="mb-15 js-awareness-title js-animate">
+              My journey to reclaiming happiness and personal freedom through a
+              simple, easy-to-follow framework will guide you to...
+            </h3>
+
+            <ul class="flex flex-col gap-4 js-awareness-list">
+              <li class="flex items-start gap-4">
+                <div>
+                  <div
+                    class="border border-lightCyan rounded-sm flex w-6 h-6 justify-center items-center"
+                  >
+                    <img src="assets/tik.svg" alt="tik-icon" />
+                  </div>
+                </div>
+                <p class="text-body2">
+                  Work with anger, frustration, and other challenging emotions
+                </p>
+              </li>
+              <li class="flex items-start gap-4">
+                <div>
+                  <div
+                    class="border border-lightCyan rounded-sm flex w-6 h-6 justify-center items-center"
+                  >
+                    <img src="assets/tik.svg" alt="tik-icon" />
+                  </div>
+                </div>
+                <p class="text-body2">
+                  Work with anger, frustration, and other challenging emotions
+                </p>
+              </li>
+              <li class="flex items-start gap-4">
+                <div>
+                  <div
+                    class="border border-lightCyan rounded-sm flex w-6 h-6 justify-center items-center"
+                  >
+                    <img src="assets/tik.svg" alt="tik-icon" />
+                  </div>
+                </div>
+                <p class="text-body2">
+                  Work with anger, frustration, and other challenging emotions
+                </p>
+              </li>
+              <li class="flex items-start gap-4">
+                <div>
+                  <div
+                    class="border border-lightCyan rounded-sm flex w-6 h-6 justify-center items-center"
+                  >
+                    <img src="assets/tik.svg" alt="tik-icon" />
+                  </div>
+                </div>
+                <p class="text-body2">
+                  Work with anger, frustration, and other challenging emotions
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trapped" class="bg-primary overflow-hidden">
+      <div
+        class="flex js-headline-animation-container relative w-screen h-[50px] md:h-[88px]"
+      >
+        <img
+          src="assets/TRAPPED2.png"
+          alt=""
+          class="js-headline-animation top-0 max-w-auto h-full inline-block absolute"
+        />
+      </div>
+    </section>
+
+    <section id="praise" class="py-20 lg:py-32 bg-[#fff] overflow-hidden">
+      <div class="container">
+        <h2 class="text-center mb-20 js-animate js-praise-title">
+          More praises
+        </h2>
+        <div class="">
+          <div
+            id="slider"
+            class="testimonials slider gap-15 pb-4 overflow-x-hidden md:overflow-hidden flex flex-row flex-nowrap md:flex-col md:flex md:justify-center lg:justify-between md:gap-10 lg:gap-15 lg:flex-row lg:flex-wrap"
+          >
+            <div
+              class="testimonial min-w-full lg:min-w-min lg:mr-0 xl:max-w-[47%] lg:justify-between js-animate js-testimonial-slider p-4"
+            >
+              <div class="w-10 h-8">
+                <img src="assets/quote.svg" alt="" class="w-full h-full" />
+              </div>
+              <p class="mt-2 text-body2 testimonial-text">
+                As a psychotherapist, I'm grateful to Nathan Joblin for writing
+                Trapped!. This material is timely, given that some of our
+                culture's voices can mischaracterize the masculine as solely
+                toxic, leaving many feeling misunderstood and maligned. This
+                book speaks to the need for compassion, courage, and strength in
+                addressing the healing and health of the masculine. Nathan
+                Joblin's work is a pathway forward for men looking to shift/free
+                themselves toward a new paradigm of grounding their lives in
+                purpose, meaning, and love. Trapped! is a must-read to awaken
+                and support the heroic masculine, a crucial and valuable part of
+                the human collective.
+              </p>
+              <div class="author mt-4">
+                <p class="font-bold left-bar">
+                  Natasha Senra-Pereira, MSW, RSW, RP
+                </p>
+                <p class="text-body2 text-sm">
+                  Social Worker, Psychotherapist, Author/Speaker
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="testimonial min-w-full lg:min-w-min lg:mr-0 xl:max-w-[47%] lg:justify-between js-animate js-testimonial-slider p-4"
+            >
+              <div class="w-10 h-8">
+                <img src="assets/quote.svg" alt="" class="w-full h-full" />
+              </div>
+              <p class="mt-2 text-body2 testimonial-text">
+                As a psychotherapist, I'm grateful to Nathan Joblin for writing
+                Trapped!. This material is timely, given that some of our
+                culture's voices can mischaracterize the masculine as solely
+                toxic, leaving many feeling misunderstood and maligned. This
+                book speaks to the need for compassion, courage, and strength in
+                addressing the healing and health of the masculine. Nathan
+                Joblin's work is a pathway forward for men looking to shift/free
+                themselves toward a new paradigm of grounding their lives in
+                purpose, meaning, and love. Trapped! is a must-read to awaken
+                and support the heroic masculine, a crucial and valuable part of
+                the human collective.
+              </p>
+              <div class="author mt-4">
+                <p class="font-bold left-bar">
+                  Natasha Senra-Pereira, MSW, RSW, RP
+                </p>
+                <p class="text-body2 text-sm">
+                  Social Worker, Psychotherapist, Author/Speaker
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="testimonial min-w-full lg:min-w-min lg:mr-0 xl:max-w-[47%] lg:justify-between js-animate js-testimonial-slider p-4"
+            >
+              <div class="w-10 h-8">
+                <img src="assets/quote.svg" alt="" class="w-full h-full" />
+              </div>
+              <p class="mt-2 text-body2 testimonial-text">
+                As a psychotherapist, I'm grateful to Nathan Joblin for writing
+                Trapped!. This material is timely, given that some of our
+                culture's voices can mischaracterize the masculine as solely
+                toxic, leaving many feeling misunderstood and maligned. This
+                book speaks to the need for compassion, courage, and strength in
+                addressing the healing and health of the masculine. Nathan
+                Joblin's work is a pathway forward for men looking to shift/free
+                themselves toward a new paradigm of grounding their lives in
+                purpose, meaning, and love. Trapped! is a must-read to awaken
+                and support the heroic masculine, a crucial and valuable part of
+                the human collective.
+              </p>
+              <div class="author mt-4">
+                <p class="font-bold left-bar">
+                  Natasha Senra-Pereira, MSW, RSW, RP
+                </p>
+                <p class="text-body2 text-sm">
+                  Social Worker, Psychotherapist, Author/Speaker
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="slider-controll flex justify-center gap-2 p-4 mt-4 items-center md:hidden"
+          >
+            <div class="mr-2" id="slider-prev">
+              <img src="assets/right-arrow.svg" alt="" class="rotate-180" />
+            </div>
+
+            <div class="ml-2" id="slider-next">
+              <img src="assets/right-arrow.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="author" class="overflow-hidden lg:pt-20 lg:pb-32">
+      <div class="container py-20">
+        <div class="md:px-12 xl:px-0">
+          <h2 class="mb-24 text-center js-author-title js-animate">
+            About The author
+          </h2>
+          <div class="flex flex-col items-center lg:flex-row lg:gap-24">
+            <div class="lg:flex-1 w-full">
+              <div
+                class="w-full lg:border-[6px] lg:border-darkCyan js-animate js-author-image"
+              >
+                <img
+                  src="assets/author.jpg"
+                  alt="author-image"
+                  class="md:h-[600px] md:object-top w-full lg:h-auto md:object-cover lg:relative lg:top-12 xl:top-17 lg:left-15"
+                />
+              </div>
+            </div>
+
+            <div class="lg:flex-1">
+              <h3 class="font-bold mt-10 lg:mt-0 js-animate js-author-name">
+                Nathan Joblin
+              </h3>
+              <p class="text-body2 mt-4 js-animate js-author-text">
+                Nathan Joblin is COO + Co-Founder of Modern Wisdom Press. His
+                passion for simplicity and all things operational has included
+                decades of experience in the publishing, nonprofit, and
+                educational sectors, where he has directed production, finance,
+                and administration for a number of organizations.
+                <br /><br />
+                Nathan's journey to becoming a published book author inspires
+                him to support clients in overcoming the inherent obstacles to
+                getting a book into the world. His expert skills and passion for
+                streamlining the publishing process empower first-time authors
+                to transform their manuscripts into bestselling books.
+              </p>
+              <div class="social flex gap-4 mt-8 js-animate js-author-social">
+                <a
+                  href="#"
+                  target="_blank"
+                  class="flex w-9 transition-colors ease-linear duration-300 rounded-full h-9 hover:bg-red-500 bg-slate-400 justify-center items-center"
+                >
+                  <img src="assets/instagram.svg" alt="" />
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="flex w-9 rounded-full h-9 transition-colors ease-linear duration-300 hover:bg-blue-600 bg-slate-400 justify-center items-center"
+                >
+                  <img src="assets/linkeding.svg" alt="" />
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="flex w-9 rounded-full h-9 transition-colors ease-linear duration-300 hover:bg-[#3B5998] bg-slate-400 justify-center items-center"
+                >
+                  <img src="assets/facebook.svg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="chapter"
+      class="bg-white py-[90px] md:py-[110px] lg:py-[190px] relative overflow-hidden"
+    >
+      <div
+        class="hidden xl:block w-[110px] absolute top-0 left-0 bottom-0 bg-primary"
+      >
+        <img
+          src="assets/TRAPPED.svg"
+          alt=""
+          class="min-w-[950px] -rotate-90 relative top-[45%] left-[-382%]"
+        />
+      </div>
+      <div class="container">
+        <h2
+          class="mb-12 md:mb-20 lg:mb-32 leading-10 tracking-tighter text-center js-animate js-chapter-title"
+        >
+          What's in the book?
+        </h2>
+        <div class="xl:px-[100px] md:px-[50px]">
+          <div
+            class="general-section mt-15 flex flex-col lg:flex-row two-column lg:gap-6"
+          >
+            <div
+              class="accordion border border-slate-400 mb-4 rounded-md min-w-[300px] max-w-full"
+            >
+              <div
+                class="accordion__heading cursor-pointer gap-3 px-4 pt-5 pb-4 flex items-baseline justify-between"
+              >
+                <p class="text-body2 select-none">
+                  Chapter 3: Healthier, Happier, and More Present
+                </p>
+                <img src="./assets/arrow.svg" alt="" class="accordion__arrow" />
+              </div>
+              <div class="accordion__body">
+                <p class="mt-2 text-body2 text-base px-4 pb-4">
+                  We were taught to be team players and play by the rules, and
+                  since we tend to do what we are told, we make sure that we are
+                  good at it. And because we play the game so well, we believe
+                  we should be rewarded with happiness, success, and prosperity.
+                  In reality, though, nothing is promised to any of us, and we
+                  do ourselves a disservice by defining success in material
+                  terms. This dynamic will continue indefinitely until we take
+                  responsibility for defining our own needs and desires in this
+                  world.
+                </p>
+              </div>
+            </div>
+            <div
+              class="accordion border border-slate-400 mb-4 rounded-md min-w-[300px] max-w-full"
+            >
+              <div
+                class="accordion__heading cursor-pointer gap-3 px-4 pt-5 pb-4 flex items-baseline justify-between"
+              >
+                <p class="text-body2 select-none">
+                  Chapter 3: Healthier, Happier, and More Present
+                </p>
+                <img src="./assets/arrow.svg" alt="" class="accordion__arrow" />
+              </div>
+              <div class="accordion__body">
+                <p class="mt-2 text-body2 text-base px-4 pb-4">
+                  We were taught to be team players and play by the rules, and
+                  since we tend to do what we are told, we make sure that we are
+                  good at it. And because we play the game so well, we believe
+                  we should be rewarded with happiness, success, and prosperity.
+                  In reality, though, nothing is promised to any of us, and we
+                  do ourselves a disservice by defining success in material
+                  terms. This dynamic will continue indefinitely until we take
+                  responsibility for defining our own needs and desires in this
+                  world.
+                </p>
+              </div>
+            </div>
+            <div
+              class="accordion border border-slate-400 mb-4 rounded-md min-w-[300px] max-w-full"
+            >
+              <div
+                class="accordion__heading cursor-pointer gap-3 px-4 pt-5 pb-4 flex items-baseline justify-between"
+              >
+                <p class="text-body2 select-none">
+                  Chapter 3: Healthier, Happier, and More Present
+                </p>
+                <img src="./assets/arrow.svg" alt="" class="accordion__arrow" />
+              </div>
+              <div class="accordion__body">
+                <p class="mt-2 text-body2 text-base px-4 pb-4">
+                  We were taught to be team players and play by the rules, and
+                  since we tend to do what we are told, we make sure that we are
+                  good at it. And because we play the game so well, we believe
+                  we should be rewarded with happiness, success, and prosperity.
+                  In reality, though, nothing is promised to any of us, and we
+                  do ourselves a disservice by defining success in material
+                  terms. This dynamic will continue indefinitely until we take
+                  responsibility for defining our own needs and desires in this
+                  world.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-awareness mt-8">
+            <h3 class="text-[25px] text-body2 tracking-normal">
+              Section 1: Awareness
+            </h3>
+            <div class="mt-4 flex flex-col lg:flex-row two-column lg:gap-6">
+              <div
+                class="accordion border border-slate-400 mb-4 rounded-md min-w-[300px] max-w-full"
+              >
+                <div
+                  class="accordion__heading cursor-pointer gap-3 px-4 pt-5 pb-4 flex items-baseline justify-between"
+                >
+                  <p class="text-body2 select-none">
+                    Chapter 3: Healthier, Happier, and More Present
+                  </p>
+                  <img
+                    src="./assets/arrow.svg"
+                    alt=""
+                    class="accordion__arrow"
+                  />
+                </div>
+                <div class="accordion__body">
+                  <p class="mt-2 text-body2 text-base px-4 pb-4">
+                    We were taught to be team players and play by the rules, and
+                    since we tend to do what we are told, we make sure that we
+                    are good at it. And because we play the game so well, we
+                    believe we should be rewarded with happiness, success, and
+                    prosperity. In reality, though, nothing is promised to any
+                    of us, and we do ourselves a disservice by defining success
+                    in material terms. This dynamic will continue indefinitely
+                    until we take responsibility for defining our own needs and
+                    desires in this world.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="accordion border border-slate-400 mb-4 rounded-md min-w-[300px] max-w-full"
+              >
+                <div
+                  class="accordion__heading cursor-pointer gap-3 px-4 pt-5 pb-4 flex items-baseline justify-between"
+                >
+                  <p class="text-body2 select-none">
+                    Chapter 3: Healthier, Happier, and More Present
+                  </p>
+                  <img
+                    src="./assets/arrow.svg"
+                    alt=""
+                    class="accordion__arrow"
+                  />
+                </div>
+                <div class="accordion__body">
+                  <p class="mt-2 text-body2 text-base px-4 pb-4">
+                    We were taught to be team players and play by the rules, and
+                    since we tend to do what we are told, we make sure that we
+                    are good at it. And because we play the game so well, we
+                    believe we should be rewarded with happiness, success, and
+                    prosperity. In reality, though, nothing is promised to any
+                    of us, and we do ourselves a disservice by defining success
+                    in material terms. This dynamic will continue indefinitely
+                    until we take responsibility for defining our own needs and
+                    desires in this world.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="accordion border border-slate-400 mb-4 rounded-md min-w-[300px] max-w-full"
+              >
+                <div
+                  class="accordion__heading cursor-pointer gap-3 px-4 pt-5 pb-4 flex items-baseline justify-between"
+                >
+                  <p class="text-body2 select-none">
+                    Chapter 3: Healthier, Happier, and More Present
+                  </p>
+                  <img
+                    src="./assets/arrow.svg"
+                    alt=""
+                    class="accordion__arrow"
+                  />
+                </div>
+                <div class="accordion__body">
+                  <p class="mt-2 text-body2 text-base px-4 pb-4">
+                    We were taught to be team players and play by the rules, and
+                    since we tend to do what we are told, we make sure that we
+                    are good at it. And because we play the game so well, we
+                    believe we should be rewarded with happiness, success, and
+                    prosperity. In reality, though, nothing is promised to any
+                    of us, and we do ourselves a disservice by defining success
+                    in material terms. This dynamic will continue indefinitely
+                    until we take responsibility for defining our own needs and
+                    desires in this world.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-cyan py-20 lg:py-32 relative">
+      <div class="container">
+        <div class="flex flex-col lg:flex-row lg:gap-10 items-center">
+          <div
+            class="flex-1 flex items-center w-[322px] md:w-[490px] xl:w-[525px]"
+          >
+            <img
+              class="js-footer-image js-animate w-full relative block lg:flex-1 lg:top-4"
+              srcset="
+                ../assets/cover-lg.png  100w,
+                ./assets/cover-md.png   768w,
+                ./assets/cover-lg.png  1000w
+              "
+              src="./assets/cover-lg.png"
+              alt="trapped book cover"
+              alt=""
+            />
+          </div>
+          <div class="flex-1 content text-center lg:text-left">
+            <h2
+              class="js-animate js-footer-title text-[42px] leading-[40px] md:text-[64px] md:leading-[70px]"
+            >
+              Available in Both Paperback and eBook Format
+            </h2>
+            <button
+              class="cta-button mt-10 js-animate js-footer-button"
+              onclick="slideDown()"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-[#323232]">
+      <div class="container py-5">
+        <p class="text-[#9a9a9a] text-[13px] text-center">
+          ©2023 Nathan Joblin | All rights reserved
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const accordionList = document.querySelectorAll(".accordion");
+      accordionList.forEach((accordion) => {
+        const accordionHeading = accordion.querySelector(".accordion__heading");
+        const accordionBody = accordion.querySelector(".accordion__body");
+
+        accordionHeading.addEventListener("click", (e) => {
+          if (accordion.classList.contains("accordion-open")) {
+            accordion.classList.remove("accordion-open");
+            accordionBody.style.maxHeight = null;
+          } else {
+            accordion.classList.add("accordion-open");
+            accordionBody.style.maxHeight = accordionBody.scrollHeight + "px";
+          }
+        });
+      });
+
+      /*=================Modal ================================= */
+
+      const modal = document.querySelector(".modal");
+      const modalCloseButton = document.querySelector(".modal__close-button");
+      const modalContent = document.querySelector(".modal__content");
+
+      function openModal() {
+        modal.style.display = "block";
+      }
+
+      function slideUp() {
+        openModal();
+        modalContent.classList.add("modal-slide-up");
+      }
+
+      function slideDown() {
+        openModal();
+        modalContent.classList.add("modal-slide-down");
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+        modalContent.classList.remove("modal-slide-up");
+        modalContent.classList.remove("modal-slide-down");
+      }
+
+      /*================= Slider ================================= */
+
+      function duplicateElement(element, count) {
+        const elements = [];
+
+        for (let i = 0; i < count; i++) {
+          elements.push(element.cloneNode(true));
+        }
+        return elements;
+      }
+
+      function r_slider() {
+        const slider = document.querySelector("#slider");
+        const sliderControls = document.querySelector(".slider-controll");
+        const sliderNext = document.getElementById("slider-next");
+        const sliderPrev = document.getElementById("slider-prev");
+        const sliderItems = slider.querySelectorAll(".testimonial");
+        if (sliderItems.length === 0) return;
+
+        // creating navigator item
+        const sliderNavigator = document.createElement("div");
+        sliderNavigator.classList.add("bg-[#C3C3C3]");
+        sliderNavigator.innerHTML = ' <div class="slider-nav w-4 h-1.5"></div>';
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let dragDist = 0;
+
+        const sliderItemGap = 60;
+        let sliderItemWidth = sliderItems[0].scrollWidth + sliderItemGap;
+
+        let currentSlide = 0;
+
+        const slideCount = sliderItems.length;
+
+        const sliderNavigators = duplicateElement(sliderNavigator, slideCount);
+
+        sliderNavigators.forEach((nav) => {
+          sliderControls.insertBefore(nav, sliderNext);
+        });
+
+        window.addEventListener("resize", () => {
+          sliderItemWidth = sliderItems[0].scrollWidth + sliderItemGap;
+        });
+        sliderNext.addEventListener("click", nextSlide);
+        sliderPrev.addEventListener("click", prevSlide);
+        checkButtonVisibility();
+
+        function updateSliderNavigator() {
+          sliderNavigators.forEach((nav, i) => {
+            if (i == currentSlide) nav.classList.add("slider-active");
+            else nav.classList.remove("slider-active");
+          });
+        }
+
+        function checkButtonVisibility() {
+          if (currentSlide + 1 === slideCount) sliderNext.style.opacity = "0";
+          else sliderNext.style.opacity = "1";
+
+          if (currentSlide != 0) sliderPrev.style.opacity = "1";
+          else sliderPrev.style.opacity = "0";
+          updateSliderNavigator();
+        }
+
+        function updateSlidePosition() {
+          slider.classList.add("smooth");
+          console.log(sliderItemWidth);
+          slider.scrollLeft = sliderItemWidth * currentSlide;
+          slider.classList.remove("smooth");
+        }
+
+        function nextSlide() {
+          if (currentSlide == slideCount - 1) return;
+          currentSlide++;
+          checkButtonVisibility();
+          updateSlidePosition();
+        }
+
+        function prevSlide() {
+          if (currentSlide === 0) return;
+          currentSlide--;
+          checkButtonVisibility();
+          updateSlidePosition();
+        }
+
+        const start = (e) => {
+          isDown = true;
+          slider.classList.add("active");
+          startX = e.pageX || e.touches[0].pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        };
+
+        const move = (e) => {
+          if (!isDown) return;
+          const x = e.pageX || e.touches[0].pageX - slider.offsetLeft;
+          dragDist = x - startX;
+          slider.scrollLeft = scrollLeft - dragDist;
+          console.log(dragDist);
+        };
+
+        const end = (e) => {
+          if (dragDist < 0 && dragDist < -50) {
+            nextSlide();
+          } else if (dragDist > 0 && dragDist > 50) {
+            prevSlide();
+          } else {
+            updateSlidePosition();
+          }
+        };
+
+        slider.addEventListener("mousedown", start);
+        slider.addEventListener("touchstart", start);
+
+        slider.addEventListener("mousemove", move);
+        slider.addEventListener("touchmove", move);
+
+        slider.addEventListener("mouseleave", end);
+        slider.addEventListener("mouseup", end);
+        slider.addEventListener("touchend", end);
+      }
+      r_slider();
+
+      /*=================*/
+      function handleTwoColumn() {
+        const twoColumnList = document.querySelectorAll(".two-column");
+        if (window.scrollWidth < 1000) return;
+        twoColumnList.forEach((list, i) => {
+          let col1 = document.createElement("div");
+          col1.className = "lg:flex-1 flex flex-col gap-4";
+          let col2 = document.createElement("div");
+          col2.className = "lg:flex-1 flex flex-col gap-4";
+          const children = list.children;
+          Array.from(children).forEach((child, i) => {
+            if (i % 2 == 0) {
+              col1.appendChild(child);
+            } else {
+              col2.appendChild(child);
+            }
+          });
+
+          list.appendChild(col1);
+          list.appendChild(col2);
+        });
+      }
+      handleTwoColumn();
+      // ============animation==============
+      function Animation() {
+        let vw = window.innerWidth;
+        let vh = window.innerHeight;
+
+        let animationQueue = [];
+
+        // helper function
+        function slideFromTop(elem, duration) {
+          elem.classList.add("slide-from-top");
+        }
+        function slideFromTopImage(elem, duration) {
+          elem.classList.add("slide-from-top-image");
+        }
+
+        function slideFromRight(elem, duration) {
+          elem.classList.add("slide-from-right");
+        }
+
+        function slideFromLeft(elem, duration) {
+          elem.classList.add("slide-from-left");
+        }
+        function slideFromLeftImage(elem, duration) {
+          elem.classList.add("slide-from-left-image");
+        }
+        function slideFromRight(elem, duration) {
+          elem.classList.add("slide-from-right");
+        }
+        function fadeinFromBottom(elem, duration) {
+          elem.classList.add("fadein-from-bottom");
+        }
+
+        // utility
+        function getPositionInViewPort(elem) {
+          const rect = elem.getBoundingClientRect();
+          const distanceFromViewportTop = rect.top;
+          const positionInViewPort = distanceFromViewportTop / vh;
+          return positionInViewPort;
+        }
+
+        function animate(elem, animateFunction, duration) {
+          animateFunction(elem, duration);
+          elem.style.animationDuration = `${duration / 1000}s`;
+        }
+
+        /*
+         * animationArrayelement = [element, animationFunction, duration]
+         */
+        function groupAnimate(animationArray, options = {}) {
+          let delay = 0;
+          if (options.delay) {
+            const delta = Date.now() - options.time;
+            delay = Math.max(0, options.delay - delta);
+          }
+
+          let queuedAnimation = [];
+          let shouldSkip = false;
+
+          animationArray.forEach(async (animatation, i) => {
+            if (shouldSkip) return;
+            if (!animatation || animatation.legth < 3) return;
+            const element = animatation[0];
+            const duration = animatation[2];
+
+            const positionInViewPort = getPositionInViewPort(element);
+            // console.log(element, positionInViewPort, vh);
+            if (positionInViewPort > 0.9) {
+              queuedAnimation = animationArray.slice(i);
+              shouldSkip = true;
+              return;
+            }
+
+            setTimeout(() => animate(...animatation), delay);
+            delay += duration;
+          });
+
+          if (queuedAnimation.length)
+            animationQueue.push({
+              animationArray: queuedAnimation,
+              options: {
+                delay: delay,
+                time: Date.now(),
+              },
+            });
+        }
+
+        //================= element ====================
+        const subscribeButton = document.querySelector(".subscribe-button");
+        const animationElem = document.querySelectorAll(".js-animate");
+
+        //@hero
+        const headerImage = document.querySelector(".js-header-image");
+        const headerTitle = document.querySelector(".js-header-title");
+        const headerText = document.querySelector(".js-header-text");
+        const headerButton = document.querySelector(".js-header-button");
+
+        // @testimonial
+        const testimonialOne = document.querySelector(".js-testimonial-one");
+        const testimonialTwo = document.querySelector(".js-testimonial-two");
+
+        // @awareness
+        const awarenessTitle = document.querySelector(".js-awareness-title");
+        const awarenessList = document.querySelector(".js-awareness-list");
+
+        // @chapter
+        const chapterTitle = document.querySelector(".js-chapter-title");
+
+        // @footer
+        const footerImage = document.querySelector(".js-footer-image");
+        const footerTitle = document.querySelector(".js-footer-title");
+        const footerButton = document.querySelector(".js-footer-button");
+
+        // @ testimonial slider / praises
+        const testimonialSlider = document.querySelectorAll(
+          ".js-testimonial-slider"
+        );
+        const praiseTitle = document.querySelector(".js-praise-title");
+
+        // @author
+        const authorTitle = document.querySelector(".js-author-title");
+        const authorImage = document.querySelector(".js-author-image");
+        const authorName = document.querySelector(".js-author-name");
+        const authorText = document.querySelector(".js-author-text");
+        const authorSocial = document.querySelector(".js-author-social");
+
+        // groupAnimate([]);
+
+        groupAnimate([
+          [headerImage, slideFromTopImage, 800],
+          [headerTitle, slideFromRight, 600],
+          [headerText, fadeinFromBottom, 500],
+          [headerButton, fadeinFromBottom, 500],
+        ]);
+
+        groupAnimate([[testimonialOne, slideFromLeft, 800]]);
+        groupAnimate([[testimonialTwo, slideFromRight, 800]]);
+
+        // groupAnimate([]);
+
+        // awareness list
+        const awarenessListAnimationArray = Array.from(
+          awarenessList.children
+        ).map((list) => {
+          list.classList.add("js-animate");
+          return [list, fadeinFromBottom, 300];
+        });
+        awarenessListAnimationArray.unshift([
+          awarenessTitle,
+          slideFromTop,
+          800,
+        ]);
+        groupAnimate(awarenessListAnimationArray);
+
+        // testimonial
+        const testimonialsAnimationArray = Array.from(testimonialSlider).map(
+          (slider) => {
+            if (vw < 770) return slider.classList.remove("js-animate");
+            slider.classList.add("js-animate");
+            return [slider, fadeinFromBottom, 500];
+          }
+        );
+        testimonialsAnimationArray.unshift([praiseTitle, slideFromTop, 800]);
+        groupAnimate(testimonialsAnimationArray);
+        // groupAnimate([]);
+
+        // groupAnimate([]);
+        // groupAnimate([]);
+        groupAnimate([
+          [authorTitle, slideFromTop, 700],
+          [authorImage, slideFromLeft, 800],
+          [authorName, fadeinFromBottom, 400],
+          [authorText, fadeinFromBottom, 400],
+          [authorSocial, fadeinFromBottom, 400],
+        ]);
+
+        groupAnimate([[chapterTitle, slideFromTop, 800]]);
+
+        // groupAnimate([]);
+        groupAnimate([
+          [footerImage, slideFromLeft, 800],
+          [footerTitle, fadeinFromBottom, 500],
+          [footerButton, fadeinFromBottom, 500],
+        ]);
+
+        function handleSubscribeButton(pageYOffset) {
+          const subscribeButtonRect = subscribeButton.getBoundingClientRect();
+          const distanceFromViewportTop = subscribeButtonRect.top;
+          const positionInViewPort = distanceFromViewportTop / vh;
+          // console.log(distanceFromViewportTop, vh, positionInViewPort);
+
+          if (positionInViewPort < 0.65) {
+            animate(subscribeButton, slideFromRight, 600);
+          }
+        }
+
+        window.addEventListener("resize", () => {
+          vw = window.innerWidth;
+          vh = window.innerHeight;
+        });
+
+        function scrollHandler() {
+          let prevPos = window.pageYOffset;
+
+          window.addEventListener("scroll", (e) => {
+            // const dist = window.pageYOffset - prevPos;
+            // if (dist < 100) return;
+            // prevPos = window.pageYOffset;
+
+            const queuedAnimation = [...animationQueue];
+
+            animationQueue = [];
+            queuedAnimation.forEach((queueObject) =>
+              groupAnimate(queueObject.animationArray, queueObject.options)
+            );
+          });
+        }
+        scrollHandler();
+
+        function headLineAnimation() {
+          const headLineAnimationContainer = document.querySelector(
+            ".js-headline-animation-container"
+          );
+          const parentwidth = headLineAnimationContainer.scrollWidth;
+
+          function infAnimate() {
+            const children = headLineAnimationContainer.children;
+
+            function animateHeadLine() {
+              Array.from(children).forEach((child) => {
+                // console.log(child.style.left, parseInt(child.style.left));
+                child.style.position = "absolute";
+                const left = child.style.left ? parseInt(child.style.left) : 0;
+                const width = child.scrollWidth;
+
+                const speed = vw > 900 ? 4 : 2;
+                const dx = left + speed;
+                child.style.left = `${dx}px`;
+
+                if (dx + width > parentwidth && children.length === 1) {
+                  const clone = child.cloneNode(true);
+                  console.log(Math.min(-1 * width, left - 50));
+                  clone.style.left = `${Math.min(
+                    -width,
+                    left - width - 100
+                  )}px`;
+
+                  headLineAnimationContainer.appendChild(clone);
+                }
+
+                if (dx > parentwidth) {
+                  headLineAnimationContainer.removeChild(child);
+                }
+              });
+            }
+
+            animateHeadLine();
+
+            requestAnimationFrame(infAnimate);
+          }
+          infAnimate();
+        }
+        headLineAnimation();
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        Animation();
+      });
+    </script>
+  </body>
+</html>

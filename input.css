@@ -1,0 +1,388 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: D-Din;
+  src: url(./assets/fonts/D-DINCondensed-Bold.otf);
+}
+/* typography */
+
+body {
+  background-color: #effafd;
+}
+
+h1 {
+  @apply text-heading;
+  font-family: "D-Din", sans-serif;
+  font-size: 46px;
+  line-height: 42px;
+  font-weight: bold;
+  letter-spacing: -2px;
+  @screen md {
+    font-size: 80px;
+    line-height: 72px;
+  }
+
+  @screen lg {
+    font-size: 80px;
+    line-height: 72px;
+  }
+}
+
+h2 {
+  @apply text-heading;
+  font-weight: 700;
+  font-family: "D-Din", sans-serif;
+  font-size: 42px;
+  line-height: 46px;
+
+  letter-spacing: -1.5px;
+
+  /* @screen md {
+    font-size: 65px;
+    line-height: 62px;
+  }
+*/
+  @screen md {
+    font-size: 68px;
+    line-height: 78px;
+    letter-spacing: -0.5px;
+  }
+}
+
+h3 {
+  @apply text-heading;
+  font-family: "D-Din", sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: -0.5px;
+  @screen md {
+    font-size: 40px;
+    line-height: 46px;
+  }
+
+  /* @screen lg {
+    font-size: 68px;
+    line-height: 78px;
+  } */
+}
+p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  @screen md {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 27px;
+
+  @screen lg {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.cta-button {
+  @apply bg-primary hover:bg-primaryDark transition-colors duration-500 ease-out;
+  padding: 6px 60px;
+  color: #fff3f3;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+  line-height: 52px;
+}
+
+.subscribe-button {
+  @apply bg-body2 hover:bg-body transition-colors duration-500 ease-out;
+  padding: 6px 30px;
+  color: #fff3f3;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+  line-height: 52px;
+}
+
+.left-bar {
+  position: relative;
+}
+.left-bar::before {
+  @apply bg-slate-400;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  top: 50%;
+  left: -20px;
+}
+
+.slider-active {
+  @apply bg-darkCyan !important;
+}
+
+.accordion {
+  transition: 0.4s;
+}
+.accordion__arrow {
+  transition: 0.3s;
+}
+.accordion-open .accordion__arrow {
+  transform: rotate(90deg);
+}
+
+.accordion.accordion-open {
+  @apply border-t-4 border-darkCyan;
+}
+.accordion-open .accordion__heading {
+  font-weight: bold;
+}
+.accordion__body {
+  transition: 0.3s;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.accordion:not(.accordion-open):hover {
+  @apply text-black;
+
+  background: #ebf8fa;
+}
+
+/* key frames */
+.js-animate {
+  opacity: 0;
+}
+@keyframes modal-slide-up {
+  from {
+    top: -35%;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+@keyframes modal-slide-down {
+  from {
+    top: 35%;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+.modal-slide-up {
+  animation: modal-slide-up;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+.modal-slide-down {
+  animation: modal-slide-down;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes slide-from-top-image {
+  0% {
+    opacity: 1;
+    transform: translateY(-800px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-from-top {
+  animation: slide-from-top;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+@keyframes slide-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(500px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-from-left {
+  0% {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-from-left-image {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-from-left-image {
+  animation: slide-from-left-image;
+  animation-fill-mode: forwards;
+}
+
+.slide-from-top-image {
+  animation: slide-from-top-image;
+  animation-fill-mode: forwards;
+}
+
+@keyframes headline {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(1000px);
+  }
+}
+
+.headline-animation {
+  animation: headline;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  @screen md {
+    animation-duration: 12s;
+  }
+}
+.slide-from-right {
+  animation: slide-from-right;
+  /* animation-duration: 1s; */
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.slide-from-left {
+  animation: slide-from-left;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadein-from-bottom {
+  animation: fadein-from-bottom;
+  animation-fill-mode: forwards;
+}
+
+/* .slide-up {
+  position: relative;
+  animation: slide-up;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+   top: -1000px; 
+}
+
+.slide-down {
+  position: relative;
+  animation: slide-down;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+} */
+
+body::-webkit-scrollbar {
+  @apply bg-slate-700;
+
+  width: 18px;
+}
+
+body::-webkit-scrollbar:hover {
+  width: 18px;
+}
+body::-webkit-scrollbar-thumb {
+  @apply bg-red-500;
+  border-radius: 120px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  @apply bg-popup;
+
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar:hover {
+  width: 12px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-red-400;
+  border-radius: 120px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  width: 12px;
+}
+
+.smooth {
+  @apply scroll-smooth;
+}
+
+.column-count-2 {
+  column-count: 2;
+}
